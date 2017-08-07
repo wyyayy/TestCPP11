@@ -266,13 +266,6 @@ void TestLambda()
 
 int main()
 {
-	std::function<void()> test = [&]()
-	{
-		int a = 0;
-		a++;
-	};
-
-
 	ifstream file("spm.spm", ios::in | ios::binary | ios::ate);
 
 	const unsigned int length = 1024 * 100;
