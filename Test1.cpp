@@ -266,6 +266,8 @@ void TestLambda()
 
 int main()
 {
+	/// Branch2 new change
+
 	/// Branch2
 
 	ifstream file("spm.spm", ios::in | ios::binary | ios::ate);
