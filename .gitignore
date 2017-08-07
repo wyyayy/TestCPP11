@@ -1,0 +1,15 @@
+*.tlog
+*.lastbuildstate
+*.xml
+*.lastcodeanalysissucceeded
+*.codeanalysis
+*.codeanalysisast
+*.idb
+*.iobj
+*.ipdb
+*.ipch
+*.filters
+*.db
+*.opendb
+*.spm
+*.enc
