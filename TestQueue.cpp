@@ -35,7 +35,9 @@ void TestQueue::_receiveThreadFunc()
 {
     while (true)
     {
-        auto task = _queue.pop();
+        //auto task = _queue.pop();
+        shared_ptr<Task> task;
+        _queue.pop(task);
         task->Run();
     }
 }

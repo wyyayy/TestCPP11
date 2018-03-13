@@ -43,7 +43,8 @@ public:
 
         if (_queue.empty())
         {
-            return nullptr;
+            item = nullptr;
+            return;
         }
         else
         {
