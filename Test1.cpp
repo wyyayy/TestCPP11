@@ -14,16 +14,28 @@
 #include<thread>  
 
 #include "TestQueue.h"
+#include "TestSmartPtr.h"
 
 using namespace std;
 using namespace std::chrono;
 
+template<typename T> T getDefaultValue(T& t1) 
+{
+    return {};
+}
+
 int main()
 {
-    TestQueue testQueue;
-    testQueue.Run();
+    bool a = 0;
+    bool ret = getDefaultValue(a);
 
-    testQueue.Join();
+    TestSmartPtr testSmartPtr;
+    testSmartPtr.Run();
+
+    //TestQueue testQueue;
+    //testQueue.Run();
+
+    //testQueue.Join();
 
     return 0;
 }

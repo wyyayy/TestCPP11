@@ -152,6 +152,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TestMiscs.h" />
     <ClInclude Include="TestQueue.h" />
+    <ClInclude Include="TestSmartPtr.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Runable.cpp" />
@@ -164,6 +165,7 @@
     <ClCompile Include="Test1.cpp" />
     <ClCompile Include="TestMiscs.cpp" />
     <ClCompile Include="TestQueue.cpp" />
+    <ClCompile Include="TestSmartPtr.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
