@@ -150,6 +150,7 @@
     <ClInclude Include="Runable.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TestMemoryLeak.h" />
     <ClInclude Include="TestMiscs.h" />
     <ClInclude Include="TestQueue.h" />
     <ClInclude Include="TestSmartPtr.h" />
@@ -164,6 +165,7 @@
     </ClCompile>
     <ClCompile Include="Test1.cpp" />
     <ClCompile Include="TestColor.cpp" />
+    <ClCompile Include="TestMemoryLeak.cpp" />
     <ClCompile Include="TestMiscs.cpp" />
     <ClCompile Include="TestQueue.cpp" />
     <ClCompile Include="TestSmartPtr.cpp" />

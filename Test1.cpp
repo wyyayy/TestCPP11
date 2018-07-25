@@ -15,7 +15,11 @@
 
 #include "TestQueue.h"
 #include "TestSmartPtr.h"
+#include "TestMemoryLeak.h"
 #include "TestColor.h"
+
+#include <iostream>
+#include <type_traits>
 
 using namespace std;
 using namespace std::chrono;
@@ -41,16 +45,90 @@ template<typename T> T getDefaultValue(T& t1)
     return {};
 }
 
-int main()
+template<typename T>
+struct TestTemplate
 {
+public:
+	T _a;
+
+	TestTemplate(std::initializer_list<T> t)
+	{
+		_a = *(t.begin());
+	}
+
+	TestTemplate()
+	{
+	}
+
+	TestTemplate(T val)
+	{
+		_a = val;
+	}
+};
+
+long multiply(int i, int j) { return i * j; }
+
+template <class T>
+typename T::multiplication_result multiply(T t1, T t2)
+{
+	return t1 * t2;
+}
+
+template <class T>
+typename std::enable_if<std::is_integral<T>::value, bool>::type
+is_odd(T i) { return bool(i % 2); }
+
+template <class T, class = typename std::enable_if<std::is_integral<T>::value>::type>
+bool is_even(T i) { return !bool(i % 2); }
+
+class TestPtr
+{
+public:
+    int a;
+};
+
+shared_ptr<TestPtr> GetPtr(bool value)
+{
+    if(value) return nullptr;
+    else return shared_ptr<TestPtr>();
+}
+
+int main()
+{	
+    void* ret1 = (void*)&GetPtr(true);
+    void* ret2 = (void*)&GetPtr(false);
+
+	auto ret = is_odd(false);
+	ret = is_even(3);
+
+	string hello = "hello";
+	string world = "world";
+
+	std::function<void(string)> func = [ helloWorld = hello + " " + world](string head)
+	{
+		cout << head <<  helloWorld;
+	};
+
+	func("INFO: ");
+
+	multiply(4.0f, 5.0f);
+
+	//TestTemplate<int> test(123);
+
+	//std::hash<std::thread::id>{}(std::this_thread::get_id())
+	//struct TestTemplate<int>{}(123);
+
     //bool a = 0;
     //bool ret = getDefaultValue(a);
 
     //TestSmartPtr testSmartPtr;
     //testSmartPtr.Run();
 
-	TestColor testColor;
-	testColor.Run();
+	TestMemoryLeak testMemoryLeak;
+	testMemoryLeak.Run();
+
+	//TestColor testColor;
+	//testColor.Run();
 
     //TestQueue testQueue;
     //testQueue.Run();
